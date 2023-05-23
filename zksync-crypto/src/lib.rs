@@ -1,5 +1,6 @@
 //! Utils for signing zksync transactions.
 //! This crate is compiled into wasm to be used in `zksync.js`.
+mod common;
 mod models;
 mod transfer;
 mod utils;
@@ -20,6 +21,7 @@ thread_local! {
 
 use wasm_bindgen::prelude::*;
 
+use franklin_crypto::bellman::bn256::Bn256;
 use franklin_crypto::{
     alt_babyjubjub::{edwards, fs::FsRepr, AltJubjubBn256, FixedGenerators},
     bellman::pairing::ff::{PrimeField, PrimeFieldRepr},

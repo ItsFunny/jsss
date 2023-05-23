@@ -20,7 +20,6 @@ default = ["console_error_panic_hook"]
 [dependencies]
 franklin_crypto = { package = "franklin-crypto", git = "https://github.com/matter-labs/franklin-crypto.git", branch="beta"}
 rand = "0.4"
-
 serde = { version = "1.0.152", features = ["derive"] }
 serde_json = { version = "1.0.93" }
 
@@ -41,11 +40,16 @@ console_error_panic_hook = { version = "0.1.6", optional = true }
 # Unfortunately, `wee_alloc` requires nightly Rust when targeting wasm for now.
 wee_alloc = { version = "0.4.2", optional = true }
 
-num-bigint = { version = "0.4.0", features = ["serde"] }
+num-bigint = "0.4.3"
 
 #executor={path="/Users/lvcong/rust/zkdex/core/lib/executor"}
-#getrandom = "0.1.16"
+getrandom = {version="0.2",features=["js"]}
 mio = "0.7.12"
+num = { version = "0.4.0", features = ["serde"] }
+
+num-traits = "0.2.15"
+zksync_crypto={git="https://github.com/matter-labs/zksync.git",package="zksync_crypto"}
+#openssl = { version = "0.10.52", features = ["vendored"] }
 [profile.release]
 # Tell `rustc` to optimize for small code size.
 opt-level = "s"
